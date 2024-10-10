@@ -1,18 +1,30 @@
 import React from 'react'
-import Task from "../../classes/Task"
-function NewTask(name,isChecked){
+import { useState } from 'react';
+function NewTask({onAddTask}){
+    const [task,setTask] =useState({name:'',isChecked:false});
+    const handleInput=(e)=>{
+        const {name,value,type,isChecked}=e.target;
+        setTask(
+            (prevTask) => ({...prevTask,[name]: type === 'checkbox' ? isChecked : value,})
+        );
+    }
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        if (task.name.trim() === '') {
+            alert('Task name cannot be empty!');
+            return;
+          }
+        onAddTask(task);
+        setTask({name:'',isChecked:false});
+    }
   return (
-    <>    
-        <form action="post">
-            <label >name is :
-                 <input type="text" name={Task.name}></input>
-            </label>
-            <label >is it done:
-                <input type="checkbox" isChecked={Task.isChecked}/>
-            </label>
-            <button type='submit'>enter neww task</button>
-        </form>
-    </>
+   <>
+   <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Enter the name of your task" name="name" value={task.name} onChange={handleInput}/>
+        <input type="checkbox" name="isChecked" checked={task.isChecked} onChange={handleInput}/>
+        <button type="submit" >Add Task</button>
+   </form>
+   </>
   )
 }
 

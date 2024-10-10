@@ -1,8 +1,8 @@
 import React from 'react'
-import NewTask from './components/newTask/newTask.jsx'
+import TaskList from './components/taskList/taskList.jsx'
 const App = () => {
   return (
-   <NewTask name="new tassk" isChecked="true"></NewTask>
+   <TaskList/>
   )
 }
 

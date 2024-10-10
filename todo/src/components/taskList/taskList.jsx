@@ -1,12 +1,24 @@
 import React from 'react'
+import { useState } from 'react';
 import "./taskList.css"
-function TaskList (Task) {
+import NewTask from '../newTask/newTask';
+function TaskList () {
+  const  [tasks, setTasks] = useState([]);
+  
+  const HandleTask=(newTask)=>{
+    setTasks((prevTasks)=>[...prevTasks, newTask]);
+  }
   return (
-    <div className='container'>
-        <ul>
-          <li></li>
-        </ul>
-    </div>
+    <>
+      <NewTask  onAddTask={HandleTask} />
+      <ul className="taskList">
+        {tasks.map((Task) => (
+          <li>
+            <p>{Task.name}</p>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }
 
