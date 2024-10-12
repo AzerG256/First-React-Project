@@ -7,17 +7,28 @@ function TaskList () {
   const HandleTask=(newTask)=>{
     setTasks((prevTasks)=>[...prevTasks, newTask]);
   };
+  const getDateDifference = (taskDate) => {
+    const today = new Date();
+    const date = new Date(taskDate);
+    const differenceInTime = date.getTime() - today.getTime();
+    const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+    return differenceInDays;
+  };
+
   return (
     <>
-      <NewTask  onAddTask={HandleTask} />
+      <NewTask onAddTask={HandleTask} />
       <ul className="taskList">
         {tasks.map((Task) => (
-          <ol>
-            <details >
-              <summary>{Task.name}</summary>
+          <ol key={Task.name}>
+            <details>
+              <summary>
+                <strong>{Task.name}</strong>
+              </summary>
               <p>{Task.description}</p>
               <p>{Task.date}</p>
-              </details>
+              <p>Days until task: {getDateDifference(Task.date)}</p>
+            </details>
           </ol>
         ))}
       </ul>
