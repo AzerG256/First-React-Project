@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 function NewTask({ onAddTask }) {
-    const [task, setTask] = useState({ name: '', description: '' });
+    const [task, setTask] = useState({ name: '', description: '' ,date:''});
 
     const handleInput = (e) => {
         const { name, value } = e.target;
@@ -19,7 +19,7 @@ function NewTask({ onAddTask }) {
             return;
         }
         onAddTask(task);
-        setTask({ name: '', description: '' });
+        setTask({ name: '', description: '' ,date:''});
     };
 
     return (
@@ -36,6 +36,13 @@ function NewTask({ onAddTask }) {
                     type="text"
                     placeholder="Enter the description of your task"
                     name="description"
+                    value={task.description}
+                    onChange={handleInput}
+                />
+                <input
+                    type="date"
+                    placeholder="Enter the deadline of your task"
+                    name="date"
                     value={task.description}
                     onChange={handleInput}
                 />

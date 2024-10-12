@@ -4,10 +4,9 @@ import "./taskList.css"
 import NewTask from '../newTask/newTask';
 function TaskList () {
   const  [tasks, setTasks] = useState([]);
-  
   const HandleTask=(newTask)=>{
     setTasks((prevTasks)=>[...prevTasks, newTask]);
-  }
+  };
   return (
     <>
       <NewTask  onAddTask={HandleTask} />
@@ -17,6 +16,7 @@ function TaskList () {
             <details >
               <summary>{Task.name}</summary>
               <p>{Task.description}</p>
+              <p>{Task.date}</p>
               </details>
           </ol>
         ))}
