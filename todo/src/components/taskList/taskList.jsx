@@ -13,9 +13,12 @@ function TaskList () {
       <NewTask  onAddTask={HandleTask} />
       <ul className="taskList">
         {tasks.map((Task) => (
-          <li>
-            <p>{Task.name}</p>
-          </li>
+          <ol>
+            <details >
+              <summary>{Task.name}</summary>
+              <p>{Task.description}</p>
+              </details>
+          </ol>
         ))}
       </ul>
     </>
