@@ -17,7 +17,7 @@ function TaskList () {
 
   return (
     <>
-      <NewTask onAddTask={HandleTask} />
+      <NewTask onAddTask={HandleTask}  />
       <ul className="taskList">
         {tasks.map((Task) => (
           <ol key={Task.name}>

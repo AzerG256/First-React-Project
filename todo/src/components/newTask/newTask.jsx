@@ -21,10 +21,9 @@ function NewTask({ onAddTask }) {
         onAddTask(task);
         setTask({ name: '', description: '' ,date:''});
     };
-
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <input
                     type="text"
                     placeholder="Enter the name of your task"
