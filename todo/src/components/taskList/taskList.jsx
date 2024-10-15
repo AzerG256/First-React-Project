@@ -18,7 +18,7 @@ function TaskList () {
   return (
     <>
       <NewTask onAddTask={HandleTask}  />
-      <ul className="taskList">
+      <ul className={`taskList ${tasks.length === 0 ? 'hidden' : ''}`}>
         {tasks.map((Task) => (
           <ol key={Task.name}>
             <details>

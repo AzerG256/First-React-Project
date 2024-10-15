@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-
+import "./newTask.css"
 function NewTask({ onAddTask }) {
     const [task, setTask] = useState({ name: '', description: '' ,date:''});
 

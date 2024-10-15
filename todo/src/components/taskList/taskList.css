@@ -1,15 +1,36 @@
 .taskList {
     position: fixed;
-    bottom: 50%;
-    right :45%;
-    border: 5px solid black;
-    padding: 10px;  
-    width: 450px;
-    height: 400px;
-    overflow-y: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: beige;
-   
+    width: 300px;
+    max-height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.taskList h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.taskList p {
+    margin: 0.5em 0;
+    padding: 0;
+    color: #666;
+}
+
+.taskList .task {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.taskList .task:last-child {
+    border-bottom: none;
 }
