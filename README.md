@@ -54,13 +54,13 @@ Usage
 Screenshots
 
 ### 1. Home Page
-![Home Page](./screenshots/HomePage.png)
+![Home Page](todo/src/screenshots/HomePage.png)
 
 ### 2. Task List
-![Task List](./screenshots/TaskList.png)
+![Task List](todo/src/screenshots/TaskList.png)
 
 ### 3. Full HomePage
-![Task Completed](./screenshots/HomePage1.png)
+![Task Completed](todo/src/screenshots/HomePage1.png)
 
 If you’d like to contribute, feel free to fork this repository and submit a pull request.
 License
