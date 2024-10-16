@@ -8,9 +8,9 @@ function TaskList () {
   const HandleTask=(newTask)=>{
     setTasks((prevTasks)=>[...prevTasks, newTask]);
   };
-  const  HandleDelete=(id)=>{
-    setTasks((prevTasks)=>prevTasks.filter((Task)=>Task.id !== id));
-  }
+  const HandleDelete = (id) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
   const getDateDifference = (taskDate) => {
     const today = new Date();
     const date = new Date(taskDate);
@@ -27,9 +27,9 @@ function TaskList () {
           <li key={Task.id}>
             <details>
               <summary className='task'>
-                <input type="checkbox" />
-                <strong className='nameT'>{Task.name}</strong>
-                <DeleteTask  onClick={() => HandleDelete(Task.id)} />
+                  <input type="checkbox" />
+                  <strong className='nameT'>{Task.name}</strong>
+                  <DeleteTask  onDelete={() => HandleDelete(Task.id)} />
               </summary>
               <p>{Task.description}</p>
               <p>{Task.date}</p>
