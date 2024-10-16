@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import "./newTask.css"
 function NewTask({ onAddTask }) {
-    const [task, setTask] = useState({ name: '', description: '' ,date:''});
+    const [task, setTask] = useState({ id:'',name: '', description: '' ,date:''});
 
     const handleInput = (e) => {
         const { name, value } = e.target;
@@ -18,8 +18,12 @@ function NewTask({ onAddTask }) {
             alert('Task name cannot be empty!');
             return;
         }
-        onAddTask(task);
-        setTask({ name: '', description: '' ,date:''});
+        const newTask = {
+            ...task,
+            id: Date.now(), // Set a unique ID
+        };
+        onAddTask(newTask);
+        setTask({ name: '', description: '' ,date:'',id: Date.now(),});
     };
     return (
         <>
@@ -45,7 +49,7 @@ function NewTask({ onAddTask }) {
                     value={task.description}
                     onChange={handleInput}
                 />
-                <button type="submit">Add Task</button>
+                <button type="submit" className='submit-b'>Add Task</button>
             </form>
         </>
     );

@@ -26,7 +26,7 @@
     color: #666;
 }
 
-.taskList .task {
+.taskList {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -34,3 +34,27 @@
 .taskList .task:last-child {
     border-bottom: none;
 }
+.hidden{
+    display: none;
+}
+.task {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+    justify-self: start;
+    flex-shrink: 0;
+}
+
+.nameT {
+    justify-self: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

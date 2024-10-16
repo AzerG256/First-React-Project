@@ -7,20 +7,19 @@ form{
 input {
     padding: 0.5em;
     font-size: 16px;
-    width: 100%; /* Make inputs take full width */
-    max-width: 300px; /* Optional: limit the maximum width */
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
 }
 
 
 
 
-button {
-    --b: 3px;   /* border thickness */
-    --s: .45em; /* size of the corner */
+.submit-b {
+    --b: 3px;
+    --s: .45em;
     --color: #373B44;
-  
-    padding: 0.5em calc(.9em + var(--s)); /* Match the input padding */
+    padding: 0.5em calc(.9em + var(--s));
     color: var(--color);
     --_p: var(--s);
     background:
@@ -38,14 +37,14 @@ button {
     touch-action: manipulation;
 }
 
-button:hover,
-button:focus-visible{
+.submit-b:hover,
+.submit-b:focus-visible{
   --_p: 0px;
   outline-color: var(--color);
   outline-offset: .05em;
 }
 
-button:active {
+.submit-b:active {
   background: var(--color);
   color: #fff;
 }

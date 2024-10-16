@@ -2,11 +2,15 @@ import React from 'react'
 import { useState } from 'react';
 import "./taskList.css"
 import NewTask from '../newTask/newTask';
+import DeleteTask from '../deleteTask/deleteTask';
 function TaskList () {
   const  [tasks, setTasks] = useState([]);
   const HandleTask=(newTask)=>{
     setTasks((prevTasks)=>[...prevTasks, newTask]);
   };
+  const  HandleDelete=(id)=>{
+    setTasks((prevTasks)=>prevTasks.filter((Task)=>Task.id !== id));
+  }
   const getDateDifference = (taskDate) => {
     const today = new Date();
     const date = new Date(taskDate);
@@ -20,16 +24,18 @@ function TaskList () {
       <NewTask onAddTask={HandleTask}  />
       <ul className={`taskList ${tasks.length === 0 ? 'hidden' : ''}`}>
         {tasks.map((Task) => (
-          <ol key={Task.name}>
+          <li key={Task.id}>
             <details>
-              <summary>
-                <strong>{Task.name}</strong>
+              <summary className='task'>
+                <input type="checkbox" />
+                <strong className='nameT'>{Task.name}</strong>
+                <DeleteTask  onClick={() => HandleDelete(Task.id)} />
               </summary>
               <p>{Task.description}</p>
               <p>{Task.date}</p>
               <p>Days until task: {getDateDifference(Task.date)}</p>
             </details>
-          </ol>
+          </li>
         ))}
       </ul>
     </>
